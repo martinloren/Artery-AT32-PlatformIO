@@ -1,0 +1,46 @@
+//
+// !!! WARNING !!! AUTO-GENERATED FILE!
+// PLEASE DO NOT MODIFY IT AND USE "platformio.ini":
+// https://docs.platformio.org/page/projectconf/section_env_build.html#build-flags
+//
+{
+    "configurations": [
+        {
+            "name": "PlatformIO",
+            "includePath": [
+                "C:/Users/Xliloz/.platformio/platforms/at32/examples/cmsis-acd1_dma/include",
+                "C:/Users/Xliloz/.platformio/platforms/at32/examples/cmsis-acd1_dma/src",
+                "C:/Users/Xliloz/.platformio/packages/framework-cmsis@2.50501.200527/CMSIS/Include",
+                "C:/Users/Xliloz/.platformio/packages/framework-cmsis-at32f40/Include",
+                "C:/Users/Xliloz/.platformio/platforms/at32/examples/cmsis-acd1_dma/lib/Delay",
+                ""
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "path": [
+                    "C:/Users/Xliloz/.platformio/platforms/at32/examples/cmsis-acd1_dma/include",
+                    "C:/Users/Xliloz/.platformio/platforms/at32/examples/cmsis-acd1_dma/src",
+                    "C:/Users/Xliloz/.platformio/packages/framework-cmsis@2.50501.200527/CMSIS/Include",
+                    "C:/Users/Xliloz/.platformio/packages/framework-cmsis-at32f40/Include",
+                    "C:/Users/Xliloz/.platformio/platforms/at32/examples/cmsis-acd1_dma/lib/Delay",
+                    ""
+                ]
+            },
+            "defines": [
+                "PLATFORMIO=50200",
+                "AT32F403ACGT7",
+                ""
+            ],
+            "cStandard": "c11",
+            "compilerPath": "C:/Users/Xliloz/.platformio/packages/toolchain-gccarmnoneeabi@1.70201.0/bin/arm-none-eabi-gcc.exe",
+            "compilerArgs": [
+                "-mcpu=cortex-m4",
+                "-mthumb",
+                "-mcpu=cortex-m4",
+                "-mthumb",
+                ""
+            ]
+        }
+    ],
+    "version": 4
+}
