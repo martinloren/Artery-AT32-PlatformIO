@@ -40,7 +40,9 @@ upload_protocol = env.subst("$UPLOAD_PROTOCOL")
 
 env.Append(
     ASFLAGS=["-x", "assembler-with-cpp"],
-    CFLAGS=["-std=gnu11"],
+    CFLAGS=[
+        "-std=gnu11",
+        ],
     CCFLAGS=[
         "-Os",  # optimize for speed
         "-mcpu=%s" % board_config.get("build.cpu"),
@@ -50,6 +52,11 @@ env.Append(
         "-nostdlib",
         "--param",
         "max-inline-insns-single=500",
+        #"-print-multi-lib", #to check library versions
+    ],
+    CXXFLAGS=[
+        "-fno-rtti",
+        "-fno-exceptions",
     ],
     CPPPATH=[
     ],
@@ -62,6 +69,16 @@ env.Append(
     LIBPATH=[join(CMSIS_DIR, "DSP", "Lib", "GCC")],
 )
 
+#Floating point unit: hard (hardware) | softfp (software)
+if (
+    any(cpu in board_config.get("build.cpu") for cpu in ("cortex-m4"))
+):
+    env.Append(
+        CFLAGS=["-mfpu=fpv4-sp-d16", "-mfloat-abi=hard"],
+        CCFLAGS=["-mfpu=fpv4-sp-d16", "-mfloat-abi=hard"],
+        LINKFLAGS=["-mcpu=%s" % board_config.get("build.cpu"), "-mfpu=fpv4-sp-d16", "-mfloat-abi=hard"],
+    )
+
 # copy CCFLAGS to ASFLAGS (-x assembler-with-cpp mode)
 env.Append(ASFLAGS=env.get("CCFLAGS", [])[:])
 
@@ -70,6 +87,7 @@ env.Append(ASFLAGS=env.get("CCFLAGS", [])[:])
 #
 
 libs = []
+
 libs.append(
     env.BuildLibrary(
         join("$BUILD_DIR", "AT32F4xx_StdPeriph"), join(FRAMEWORK_DIR, "libraries", "AT32F4xx_StdPeriph_Driver")
