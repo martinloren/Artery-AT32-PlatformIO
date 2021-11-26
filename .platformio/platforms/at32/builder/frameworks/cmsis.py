@@ -45,10 +45,9 @@ assert product_line, "Missing MCU or Product Line field"
 
 
 #env.SConscript("_bare.py")
-build_script = "_bare.py"
+#build_script = "_bare.py"
 build_script = join(env.PioPlatform().get_package_dir("framework-cmsis-" + mcu[0:7]), 
     "tools", "platformio", "platformio-build.py")
-env.SConscript(build_script)
 
 if not isfile(build_script):
     sys.stderr.write("Error: Missing PlatformIO build script %s!\n" % build_script)
@@ -138,11 +137,8 @@ env.Append(
 #
 # Compile CMSIS sources
 #
-
 sources_path = os.path.join(CMSIS_DEVICE_DIR, "Source", "Templates")
 prepare_startup_file(sources_path)
-
-
 
 env.BuildSources(
     os.path.join("$BUILD_DIR", "FrameworkCMSIS"), sources_path,

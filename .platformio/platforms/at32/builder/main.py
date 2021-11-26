@@ -191,6 +191,41 @@ elif upload_protocol.startswith("jlink"):
     )
     upload_actions = [env.VerboseAction("$UPLOADCMD", "Uploading $SOURCE")]
 
+elif upload_protocol == "dfu":
+    hwids = board.get("build.hwids", [["0x0483", "0xDF11"]])
+    vid = hwids[0][0]
+    pid = hwids[0][1]
+
+    # default tool for all boards with embedded DFU bootloader over USB
+    _upload_tool = '"%s"' % join(platform.get_package_dir(
+        "tool-dfuutil") or "", "bin", "dfu-util")
+    _upload_flags = [
+        "-d", ",".join(["%s:%s" % (hwid[0], hwid[1]) for hwid in hwids]),
+        "-a", "0", "-s",
+        "%s:leave" % board.get("upload.offset_address", "0x08000000"), "-D"
+    ]
+
+    upload_actions = [env.VerboseAction("$UPLOADCMD", "Uploading $SOURCE")]
+
+    if "dfu-util" in _upload_tool:
+        # Add special DFU header to the binary image
+        env.AddPostAction(
+            join("$BUILD_DIR", "${PROGNAME}.bin"),
+            env.VerboseAction(
+                " ".join([
+                    '"%s"' % join(platform.get_package_dir("tool-dfuutil") or "",
+                         "bin", "dfu-suffix"),
+                    "-v %s" % vid,
+                    "-p %s" % pid,
+                    "-d 0xffff", "-a", "$TARGET"
+                ]), "Adding dfu suffix to ${PROGNAME}.bin"))
+    env.Replace(
+        UPLOADER=_upload_tool,
+        UPLOADERFLAGS=_upload_flags,
+        UPLOADCMD='$UPLOADER $UPLOADERFLAGS "${SOURCE.get_abspath()}"')
+
+    upload_source = target_firm
+
 
 elif upload_protocol == "serial":
     def __configure_upload_port(env):
@@ -199,13 +234,13 @@ elif upload_protocol == "serial":
     env.Replace(
         __configure_upload_port=__configure_upload_port,
         UPLOADER=join(
-            '"%s"' % platform.get_package_dir("tool-stm32duino") or "",
-            "stm32flash", "stm32flash"),
+            '%s' % platform.get_dir() or "",
+            "tools", "stm32flash", "stm32flash"),
         UPLOADERFLAGS=[
             "-g", board.get("upload.offset_address", "0x08000000"),
             "-b", env.subst("$UPLOAD_SPEED") or "115200", "-w"
         ],
-        UPLOADCMD='$UPLOADER $UPLOADERFLAGS "$SOURCE" "${__configure_upload_port(__env__)}"'
+        UPLOADCMD='"$UPLOADER" $UPLOADERFLAGS $SOURCE ${__configure_upload_port(__env__)}'
     )
 
     upload_actions = [

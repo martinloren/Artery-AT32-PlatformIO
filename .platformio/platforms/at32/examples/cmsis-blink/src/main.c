@@ -1,6 +1,7 @@
 /** Light on/off pin PC13, 100Hz frequency */
 
 #include "at32f4xx.h"
+#include "delay.h"
 
 #define LEDPORT (GPIOC)
 #define LED1 (13)
@@ -9,24 +10,16 @@
 #define GPIOMODER (GPIO_CTRLH_MDE13_0)
 
 
-void ms_delay(int ms)
-{
-   while (ms-- > 0) {
-      volatile int x=8000;
-      while (x-- > 0)
-         __asm("nop");
-   }
-}
-
-
 //Alternates blue and green LEDs quickly
 int main(void)
 {
+    Delay_init();
+
     ENABLE_GPIO_CLOCK;              // enable the clock to GPIO
     LEDPORT->_MODER |= GPIOMODER;   // set pins to be general purpose output
 
     for (;;) {
-        ms_delay(5);
+        Delay_ms(200);
         LEDPORT->OPTDT ^= (1<<LED1);  // toggle diodes ODR
     }
 

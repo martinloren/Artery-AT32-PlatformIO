@@ -33,7 +33,7 @@ env.Append(
 
     CXXFLAGS=[
         "-fno-rtti",
-        "-fno-exceptions"
+        "-fno-exceptions",
     ],
 
     CPPDEFINES=[
@@ -43,11 +43,21 @@ env.Append(
     LINKFLAGS=[
         "-Os",
         "-Wl,--gc-sections,--relax",
-        "-mthumb"
+        "-mthumb",
     ],
 
     LIBS=["c", "gcc", "m", "stdc++"]
 )
+
+#Floating point unit: hard (hardware) | softfp (software)
+if (
+    any(cpu in board_config.get("build.cpu") for cpu in ("cortex-m4"))
+):
+    env.Append(
+        CFLAGS=["-mfpu=fpv4-sp-d16", "-mfloat-abi=hard"],
+        CCFLAGS=["-mfpu=fpv4-sp-d16", "-mfloat-abi=hard"],
+        LINKFLAGS=["-mfpu=fpv4-sp-d16", "-mfloat-abi=hard"],
+    )
 
 if "BOARD" in env:
     env.Append(

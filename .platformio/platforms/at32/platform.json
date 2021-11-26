@@ -66,6 +66,12 @@
       "owner": "platformio",
       "version": "^1.63208.0"
     },
+    "tool-dfuutil": {
+      "type": "uploader",
+      "optional": true,
+      "owner": "platformio",
+      "version": "~1.9.190708"
+    },
     "tool-cmake": {
       "optional": true,
       "owner": "platformio",
