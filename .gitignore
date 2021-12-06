@@ -32,5 +32,6 @@
 *.app
 
 #Other
-.vscode/
+*.vscode/
+*.vscode\
 *.xlsx
