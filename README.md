@@ -3,7 +3,7 @@
 
 Released specifically for the latest [AT32F403A MCU](https://www.arterychip.com/en/product/AT32F403A.jsp) with Visual Studio Code & PlatformIO.
 
-## Why ST32F403A
+## Why AT32F403A
 ![MCU Comparison](Docs/MCU_Comparison.jpg "MCU Comparison")
 
 ## Instructions
