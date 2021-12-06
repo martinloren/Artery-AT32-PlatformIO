@@ -44,7 +44,7 @@ env.Append(
         "-std=gnu11",
         ],
     CCFLAGS=[
-        "-Os",  # optimize for speed
+        "-O1",  # optimize for speed Os
         "-mcpu=%s" % board_config.get("build.cpu"),
         "-mthumb",
         "-ffunction-sections",  # place each function in its own section
@@ -93,4 +93,11 @@ libs.append(
         join("$BUILD_DIR", "AT32F4xx_StdPeriph"), join(FRAMEWORK_DIR, "libraries", "AT32F4xx_StdPeriph_Driver")
     )
 )
+
+libs.append(
+    env.BuildLibrary(
+        join("$BUILD_DIR", "AT32_USB-FS-Device"), join(FRAMEWORK_DIR, "libraries", "AT32_USB-FS-Device_Driver")
+    )
+)
+
 env.Prepend(LIBS=libs)
