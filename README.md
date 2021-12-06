@@ -31,3 +31,7 @@ Notes:
 # AT32F403A on Bluepill PCB
 You can replace the MCU on the Bluepill board with the AT32F403A. It is pin fully compatible.
 Just need to replace BOOT0 resistor from the present value of 100K with the value of 10K. This will allow the MCU to enter in Bootloader mode and flash it via UART1.
+
+# Screenshots
+![VSCode Platform](Docs/VSCode_PlatformIO_2.jpg "VSCode Platform")
+![VSCode Platform](Docs/VSCode_PlatformIO_1.jpg "VSCode Platform")
