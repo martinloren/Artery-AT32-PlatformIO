@@ -3,6 +3,9 @@
 
 Released specifically for latest AT32F403A MCU with Visual Studio Code & PlatformIO.
 
+## Why ST32F403A
+![MCU Comparison](Docs/MCU_Comparison.jpg "MCU Comparison")
+
 ## Instructions
 1) Copy the folders under .platformio into your .platformio folder (ie: C:\Users\(username)\.platformio)
 2) Open Visual Studio Code, you should see AT32 Platform among the available platforms
