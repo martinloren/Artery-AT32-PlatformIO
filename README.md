@@ -34,6 +34,8 @@ Notes 备注:
 硬件浮点单元 (FPU)
 - C/C++ compilation<br>
 C/C++ 编译
+- 224K Max SRAM<br>
+224K 最大SRAM
 
 # TO-DO List 待办事项清单
 - Add more examples (USB)<br>
