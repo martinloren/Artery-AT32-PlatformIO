@@ -88,6 +88,8 @@ void USB_BluePill_Reenumerate()
   */
 void USB_Init(void)
 {
+  /*if use USB SRAM_Size = 768 Byte, default is 512 Byte*/
+  Set_USB768ByteMode();
   //reenumerate();
   //USB_BluePill_Reenumerate();
   pInformation = &Device_Info;
