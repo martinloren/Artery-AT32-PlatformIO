@@ -1,0 +1,45 @@
+/*********************************************************************
+*               (c) SEGGER Microcontroller GmbH & Co. KG             *
+*                        The Embedded Experts                        *
+*                           www.segger.com                           *
+**********************************************************************/
+
+
+
+/*
+ * ConfigTargetSettings()
+ * 	   - called before InitTarget()
+ * 	   - set some global DLL variables to customize the normal connect procedure
+ */
+int ConfigTargetSettings(void) 
+{
+    JLINK_SYS_Report("[ConfigTargetSettings]");
+
+    JLINK_CORESIGHT_AddAP(0, CORESIGHT_AHB_AP);
+    JLINK_CORESIGHT_IndexAHBAPToUse = 0;
+	
+    CPU=CORTEX_M4;
+  
+    // force RESET to low 
+    JTAG_ResetPin = 0; // issue a reset of the CPU 
+	
+    return 0;
+}
+
+
+
+/*
+ * InitTarget()
+ *     - Replace the target-CPU-auto-find procedure of the J-Link DLL.
+ *     
+ */
+int InitTarget(void)
+{
+	JLINK_CORESIGHT_WriteAP(JLINK_CORESIGHT_AP_REG_ADDR, 0xE000EDFC);      
+	JLINK_CORESIGHT_WriteAP(JLINK_CORESIGHT_AP_REG_DATA, 0x01000001);      
+
+	// release RESET 
+	JTAG_ResetPin = 1;
+
+	return 0;
+}

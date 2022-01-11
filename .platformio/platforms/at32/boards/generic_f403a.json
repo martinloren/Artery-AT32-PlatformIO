@@ -18,7 +18,7 @@
     "default_tools": [
       "stlink"
     ],
-    "jlink_device": "STM32F103C8",
+    "jlink_device": "AT32F403ACG7",
     "openocd_extra_args": [
       "-c",
       "reset_config none"
@@ -29,7 +29,7 @@
   "frameworks": [
     "cmsis"
   ],
-  "name": "Generic F403A",
+  "name": "Generic_F403A",
   "upload": {
     "maximum_ram_size": 229376,
     "maximum_size": 262144,
