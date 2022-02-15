@@ -10,7 +10,7 @@
         "0xDF11"
       ]
     ],
-    "mcu": "at32f403acgt7",
+    "mcu": "at32f403aAgx",
     "product_line": "AT32F403ACGT7",
     "variant": "AT32F4xx/F403A_F403A(T-U)"
   },
@@ -18,7 +18,7 @@
     "default_tools": [
       "stlink"
     ],
-    "jlink_device": "AT32F403ACG7",
+    "jlink_device": "AT32F403AxGx",
     "openocd_extra_args": [
       "-c",
       "reset_config none"

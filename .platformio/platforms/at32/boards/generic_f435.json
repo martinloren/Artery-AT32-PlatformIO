@@ -1,0 +1,47 @@
+{
+  "build": {
+    "core": "at32",
+    "cpu": "cortex-m4",
+    "extra_flags": "-DAT32F435CGT7",
+    "f_cpu": "288000000L",
+    "hwids": [
+      [
+        "0x2E3C",
+        "0xDF11"
+      ]
+    ],
+    "mcu": "at32f435xg",
+    "product_line": "AT32F435_437",
+    "variant": "AT32F4xx/F435_F435(T-U)"
+  },
+  "debug": {
+    "default_tools": [
+      "stlink"
+    ],
+    "jlink_device": "AT32F435xGx",
+    "openocd_extra_args": [
+      "-c",
+      "reset_config none"
+    ],
+    "openocd_target": "stm32f4x",
+    "svd_path": "STM32F435xx.svd"
+  },
+  "frameworks": [
+    "cmsis"
+  ],
+  "name": "Generic_F435",
+  "upload": {
+    "maximum_ram_size": 524288,
+    "maximum_size": 262144,
+    "protocol": "serial",
+    "protocols": [
+      "jlink",
+      "cmsis-dap",
+      "stlink",
+      "serial",
+      "blackmagic"
+    ]
+  },
+  "url": "https://www.arterychip.com/en/product/AT32F435.jsp",
+  "vendor": "Artery"
+}

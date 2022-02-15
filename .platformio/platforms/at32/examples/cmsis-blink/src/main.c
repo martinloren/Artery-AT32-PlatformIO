@@ -19,7 +19,7 @@ int main(void)
     LEDPORT->_MODER |= GPIOMODER;   // set pins to be general purpose output
 
     for (;;) {
-        Delay_ms(200);
+        Delay_ms(1000);
         LEDPORT->OPTDT ^= (1<<LED1);  // toggle diodes ODR
     }
 

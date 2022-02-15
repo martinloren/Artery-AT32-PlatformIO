@@ -1,0 +1,15 @@
+{
+  "name": "framework-cmsis-at32f43",
+  "version": "1.0.0",
+  "description": "CMSIS component for the Artery AT32F43x series",
+  "keywords": [
+    "framework",
+    "artery",
+    "at32"
+  ],
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/STMicroelectronics/cmsis_device_f1"
+  }
+}

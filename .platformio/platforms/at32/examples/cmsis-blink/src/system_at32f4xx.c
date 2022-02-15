@@ -83,7 +83,7 @@
 /* #define SYSCLK_FREQ_36MHz        36000000 */
 /* #define SYSCLK_FREQ_48MHz        48000000 */
 /* #define SYSCLK_FREQ_56MHz        56000000 */
-#define SYSCLK_FREQ_72MHz        72000000
+//#define SYSCLK_FREQ_72MHz        72000000
 /* #define SYSCLK_FREQ_96MHz        96000000 */
 /* #define SYSCLK_FREQ_108MHz       108000000 */
 /* #define SYSCLK_FREQ_120MHz       120000000 */
@@ -118,7 +118,7 @@
 
 #if defined (AT32F403Axx)|| defined (AT32F407xx)
 /* #define SYSCLK_FREQ_224MHz       224000000 */
-/* #define SYSCLK_FREQ_240MHz       240000000 */
+#define SYSCLK_FREQ_240MHz       240000000
 /* #define SYSCLK_FREQ_224MHz_HSI   224000000 */
 /* #define SYSCLK_FREQ_240MHz_HSI   240000000 */
 #endif

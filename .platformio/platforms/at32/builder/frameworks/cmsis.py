@@ -81,6 +81,7 @@ def generate_ldscript(default_ldscript_path):
 def get_linker_script():
     ldscript_match = glob.glob(os.path.join(
         LDSCRIPTS_DIR, mcu[0:7], mcu[0:11].upper() + "*_FLASH.ld"))
+    #print(os.path.join(LDSCRIPTS_DIR, mcu[0:7], mcu[0:11].upper() + "*_FLASH.ld"))
 
     if ldscript_match and os.path.isfile(ldscript_match[0]):
         return ldscript_match[0]
@@ -99,6 +100,7 @@ def get_linker_script():
 
 def prepare_startup_file(src_path):
     startup_file = os.path.join(src_path, "gcc", "startup_%s.S" % product_line.lower())
+    print("Startup file: " + startup_file)
     # Change file extension to uppercase:
     if not os.path.isfile(startup_file) and os.path.isfile(startup_file[:-2] + ".s"):
         os.rename(startup_file[:-2] + ".s", startup_file)
@@ -137,7 +139,7 @@ env.Append(
 #
 # Compile CMSIS sources
 #
-sources_path = os.path.join(CMSIS_DEVICE_DIR, "Source", "Templates")
+sources_path = os.path.join(CMSIS_DEVICE_DIR, "Startup")
 prepare_startup_file(sources_path)
 
 env.BuildSources(
