@@ -2,12 +2,13 @@
  PlatformIO platform and framework for Artery AT32 MCU.<br>
  Artery AT32 MCU 的 PlatformIO 平台和框架。
 
-Released specifically for the latest [AT32F403A MCU](https://www.arterychip.com/en/product/AT32F403A.jsp) with Visual Studio Code & PlatformIO.
+Released specifically for the latest **[AT32F403A](https://www.arterychip.com/en/product/AT32F403A.jsp)** and **AT32F435** MCUs with Visual Studio Code & PlatformIO.
 
 ## Why AT32F403A
 ![MCU Comparison](Docs/MCU_Comparison.jpg "MCU Comparison")
 
 ## Instructions 说明
+You need to have Visual Studio Code with PlatformIO installed （tested with PlatformIO v.2.4.0). 
 1) Copy the folders under .platformio into your .platformio folder (ie: C:\Users\(username)\.platformio)<br>
 将 .platformio 下的文件夹复制到您的 .platformio 文件夹中（即：C:\Users\(用户名)\.platformio）
 3) Open Visual Studio Code, you should see AT32 Platform among the available platforms<br>
@@ -34,13 +35,17 @@ Notes 备注:
 硬件浮点单元 (FPU)
 - C/C++ compilation<br>
 C/C++ 编译
-- 224K Max SRAM<br>
-224K 最大SRAM
+- 224K Max SRAM (for AT32F403A)<br>
+224K 最大SRAM (AT32F403A)
 
 # TO-DO List 待办事项清单
 - Add more examples (USB)<br>
 增加更多示例 (USB)
 - Provide Bluepill board example?
+
+# Screenshots 屏幕截图
+![VSCode Platform](Docs/VSCode_PlatformIO_2.jpg "VSCode Platform")
+![VSCode Platform](Docs/VSCode_PlatformIO_1.jpg "VSCode Platform")
 
 # AT32F403A on Bluepill PCB - 在 Bluepill PCB 上使用 AT32F403A
 You can replace the MCU on the Bluepill board with the AT32F403A. It is pin fully compatible.
@@ -48,6 +53,8 @@ Just need to replace BOOT0 resistor from the present value of 100K with the valu
 你可以用 AT32F403A 替换 Bluepill 板上的 MCU。 它是引脚完全兼容的。
 只需要将BOOT0电阻从现在的100K值换成10K的值即可。 这将允许 MCU 进入引导加载程序模式并通过 UART1 对其进行闪存。
 
-# Screenshots 屏幕截图
-![VSCode Platform](Docs/VSCode_PlatformIO_2.jpg "VSCode Platform")
-![VSCode Platform](Docs/VSCode_PlatformIO_1.jpg "VSCode Platform")
+# AT32F435 on Blackpill PCB
+You can mount the AT32F435 on the [Blackpill PCB](https://item.taobao.com/item.htm?spm=a230r.1.14.44.458014682yTbFh&id=661526858750&ns=1&abbucket=11#detail) for STM32F103. It works without any other modification requied.
+
+![AT32F435](Docs/AT32F435.jpg "AT32F435 on BLackpill board")
+
