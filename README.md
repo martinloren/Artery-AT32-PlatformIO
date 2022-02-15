@@ -16,9 +16,9 @@ Released specifically for the latest [AT32F403A MCU](https://www.arterychip.com/
 打开示例文件夹之一并尝试编译代码/上传到 MCU
 
 # Upload Firmware on MCU 上传固件
-Available upload methods: serial bootloader (PA9, PA10), dfu, jlink<br>
+Available upload methods: `serial bootloader` (PA9, PA10), `dfu`, `jlink` (check the configuration guide [here](https://github.com/martinloren/Artery-AT32-PlatformIO/blob/main/JLINK.md) )<br>
 可用的上传方法：串行引导加载程序（PA9、PA10）、dfu、jlink
-1) Set it in the file platformio.ini in the project folder, complete configuration options as in example project *cmsis-blink*<br>
+1) Set it in the file `platformio.ini` in the Project folder, complete configuration options as in example project *cmsis-blink*<br>
 设置在项目文件夹的platformio.ini文件中，完整的配置选项在示例项目*cmsis-blink*中
 2) Run the Upload<br>
 运行上传
