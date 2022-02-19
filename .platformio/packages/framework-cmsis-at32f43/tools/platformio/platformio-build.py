@@ -59,6 +59,9 @@ env.Append(
         "-fno-exceptions",
     ],
     CPPPATH=[
+        join(FRAMEWORK_DIR, "libraries", "AT32F43x_StdPeriph_Driver", "include"),      
+        join(FRAMEWORK_DIR, "libraries", "AT32F43x_USB-Device_Driver", "include"),  
+        join(FRAMEWORK_DIR, "libraries", "AT32F435_437_board"),      
     ],
     LIBS=[
         "c",
@@ -86,18 +89,20 @@ env.Append(ASFLAGS=env.get("CCFLAGS", [])[:])
 # Target: Build Core Library
 #
 
+
 libs = []
 
-libs.append(
-    env.BuildLibrary(
+libs.append(env.BuildLibrary(
         join("$BUILD_DIR", "AT32F43x_StdPeriph"), join(FRAMEWORK_DIR, "libraries", "AT32F43x_StdPeriph_Driver")
-    )
-)
+    ))
+libs.append(env.BuildLibrary(
+        join("$BUILD_DIR", "AT32F43x_USB-Device"), join(FRAMEWORK_DIR, "libraries", "AT32F43x_USB-Device_Driver")
+    ))
+libs.append(env.BuildLibrary(
+        join("$BUILD_DIR", "AT32F435_437_board"), join(FRAMEWORK_DIR, "libraries", "AT32F435_437_board")
+    ))
 
-#libs.append(
-    #env.BuildLibrary(
-        #join("$BUILD_DIR", "AT32_USB-FS-Device"), join(FRAMEWORK_DIR, "libraries", "AT32_USB-FS-Device_Driver")
-    #)
-#)
+
+#print("BuildLibrary(): " + env.subst(join(FRAMEWORK_DIR, "libraries", "AT32F43x_USB-FS-Device_Driver")) )
 
 env.Prepend(LIBS=libs)

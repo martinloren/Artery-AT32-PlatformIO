@@ -118,8 +118,8 @@
 
 #if defined (AT32F403Axx)|| defined (AT32F407xx)
 /* #define SYSCLK_FREQ_224MHz       224000000 */
-#define SYSCLK_FREQ_240MHz       240000000
-/* #define SYSCLK_FREQ_224MHz_HSI   224000000 */
+//#define SYSCLK_FREQ_240MHz       240000000
+#define SYSCLK_FREQ_224MHz_HSI   224000000
 /* #define SYSCLK_FREQ_240MHz_HSI   240000000 */
 #endif
 

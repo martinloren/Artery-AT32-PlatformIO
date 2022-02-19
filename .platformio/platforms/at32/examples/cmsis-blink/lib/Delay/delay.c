@@ -20,7 +20,7 @@ void Delay_init()
 {
   /*Config Systick*/
   SysTick_CLKSourceConfig(SysTick_CLKSource_HCLK_Div8);
-  fac_us=(float)SystemCoreClock/(240 * 1000000);
+  fac_us=(float)SystemCoreClock/(8 * 1000000);
   fac_ms=fac_us*1000;
 }
 

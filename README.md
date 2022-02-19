@@ -39,13 +39,19 @@ C/C++ 编译
 224K 最大SRAM (AT32F403A)
 
 # TO-DO List 待办事项清单
-- Add more examples (USB)<br>
-增加更多示例 (USB)
-- Provide Bluepill board example?
+- none
 
 # Screenshots 屏幕截图
 ![VSCode Platform](Docs/VSCode_PlatformIO_2.jpg "VSCode Platform")
 ![VSCode Platform](Docs/VSCode_PlatformIO_1.jpg "VSCode Platform")
+
+# Available Examples
+**AT32F435**
+- LED Blink
+- USB vcp loopback
+
+**AT32F403A**
+- LED BLink
 
 # AT32F403A on Bluepill PCB - 在 Bluepill PCB 上使用 AT32F403A
 You can replace the MCU on the Bluepill board with the AT32F403A. It is pin fully compatible.
@@ -56,5 +62,5 @@ Just need to replace BOOT0 resistor from the present value of 100K with the valu
 # AT32F435 on Blackpill PCB
 You can mount the AT32F435 on the [Blackpill PCB](https://item.taobao.com/item.htm?spm=a230r.1.14.44.458014682yTbFh&id=661526858750&ns=1&abbucket=11#detail) for STM32F103. It works without any other modification requied.
 
-![AT32F435](Docs/AT32F435.jpg "AT32F435 on BLackpill board")
+![AT32F435](Docs/AT32F435.jpg "AT32F435 on Blackpill board")
 

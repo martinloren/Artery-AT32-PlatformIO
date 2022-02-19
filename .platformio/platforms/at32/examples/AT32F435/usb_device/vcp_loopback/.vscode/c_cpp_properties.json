@@ -1,0 +1,55 @@
+//
+// !!! WARNING !!! AUTO-GENERATED FILE!
+// PLEASE DO NOT MODIFY IT AND USE "platformio.ini":
+// https://docs.platformio.org/page/projectconf/section_env_build.html#build-flags
+//
+{
+    "configurations": [
+        {
+            "name": "PlatformIO",
+            "includePath": [
+                "c:/Users/Xliloz/.platformio/platforms/at32/examples/AT32F435/usb_device/vcp_loopback/include",
+                "c:/Users/Xliloz/.platformio/platforms/at32/examples/AT32F435/usb_device/vcp_loopback/src",
+                "c:/Users/Xliloz/.platformio/platforms/at32/examples/AT32F435/usb_device/vcp_loopback/lib/cdc",
+                "C:/Users/Xliloz/.platformio/packages/framework-cmsis-at32f43/libraries/AT32F43x_StdPeriph_Driver/include",
+                "C:/Users/Xliloz/.platformio/packages/framework-cmsis-at32f43/libraries/AT32F43x_USB-Device_Driver/include",
+                "C:/Users/Xliloz/.platformio/packages/framework-cmsis-at32f43/libraries/AT32F435_437_board",
+                "C:/Users/Xliloz/.platformio/packages/framework-cmsis@2.50501.200527/CMSIS/Include",
+                "C:/Users/Xliloz/.platformio/packages/framework-cmsis-at32f43/Include",
+                ""
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "path": [
+                    "c:/Users/Xliloz/.platformio/platforms/at32/examples/AT32F435/usb_device/vcp_loopback/include",
+                    "c:/Users/Xliloz/.platformio/platforms/at32/examples/AT32F435/usb_device/vcp_loopback/src",
+                    "c:/Users/Xliloz/.platformio/platforms/at32/examples/AT32F435/usb_device/vcp_loopback/lib/cdc",
+                    "C:/Users/Xliloz/.platformio/packages/framework-cmsis-at32f43/libraries/AT32F43x_StdPeriph_Driver/include",
+                    "C:/Users/Xliloz/.platformio/packages/framework-cmsis-at32f43/libraries/AT32F43x_USB-Device_Driver/include",
+                    "C:/Users/Xliloz/.platformio/packages/framework-cmsis-at32f43/libraries/AT32F435_437_board",
+                    "C:/Users/Xliloz/.platformio/packages/framework-cmsis@2.50501.200527/CMSIS/Include",
+                    "C:/Users/Xliloz/.platformio/packages/framework-cmsis-at32f43/Include",
+                    ""
+                ]
+            },
+            "defines": [
+                "PLATFORMIO=50205",
+                "AT32F435CGT7",
+                "AT_START_F435_V1",
+                ""
+            ],
+            "cStandard": "c11",
+            "compilerPath": "C:/Users/Xliloz/.platformio/packages/toolchain-gccarmnoneeabi@1.70201.0/bin/arm-none-eabi-gcc.exe",
+            "compilerArgs": [
+                "-mfpu=fpv4-sp-d16",
+                "-mfloat-abi=hard",
+                "-mcpu=cortex-m4",
+                "-mthumb",
+                "-mfpu=fpv4-sp-d16",
+                "-mfloat-abi=hard",
+                ""
+            ]
+        }
+    ],
+    "version": 4
+}

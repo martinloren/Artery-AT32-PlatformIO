@@ -2,7 +2,7 @@
   "build": {
     "core": "at32",
     "cpu": "cortex-m4",
-    "extra_flags": "-DAT32F435CGT7",
+    "extra_flags": "-DAT32F435CGT7 -DAT_START_F435_V1",
     "f_cpu": "288000000L",
     "hwids": [
       [
