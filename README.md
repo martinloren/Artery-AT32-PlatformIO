@@ -2,7 +2,7 @@
  PlatformIO platform and framework for Artery AT32 MCU.<br>
  Artery AT32 MCU 的 PlatformIO 平台和框架。
 
-Released specifically for the latest **[AT32F403A](https://www.arterychip.com/en/product/AT32F403A.jsp)** and **AT32F435** MCUs with Visual Studio Code & PlatformIO.
+Released specifically for the latest **[AT32F403A](https://www.arterychip.com/en/product/AT32F403A.jsp)** and **[AT32F435](https://www.arterychip.com/en/product/AT32F435.jsp)** MCUs with Visual Studio Code & PlatformIO.
 
 ## Why AT32F403A
 ![MCU Comparison](Docs/MCU_Comparison.jpg "MCU Comparison")
