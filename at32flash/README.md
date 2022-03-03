@@ -2,7 +2,7 @@
 Flash program for AT32 using the AT serial bootloader, based on [stm32flash](https://github.com/stm32duino/stm32flash).
 
 at32flash 0.1 is a release with these highlights:
-- Support for **AT32F325** beside the STM32 MCUs
+- Support for **AT32F435** beside the STM32 MCUs
 
 ## Features
 UART and I2C transports supported
