@@ -1,22 +1,22 @@
 # at32flash
 Flash program for AT32 using the AT serial bootloader, based on [stm32flash](https://github.com/stm32duino/stm32flash).
 
-at32flash 0.1 is a release with these highlights:
+**at32flash 0.1** is a release with these highlights:
 - Support for **AT32F435** beside the STM32 MCUs
 
 ## Features
-UART and I2C transports supported
-device identification
-write to flash/ram
-read from flash/ram
-auto-detect Intel HEX or raw binary input format with option to force binary
-flash from binary file
-save flash to binary file
-verify & retry up to N times on failed writes
-start execution at specified address
-software reset the device when finished if -R is specified
-resume already initialized connection (for when reset fails, UART only)
-GPIO signalling to enter bootloader mode (hardware dependent)
+- UART and I2C transports supported
+- device identification
+- write to flash/ram
+- read from flash/ram
+- auto-detect Intel HEX or raw binary input format with option to force binary
+- flash from binary file
+- save flash to binary file
+- verify & retry up to N times on failed writes
+- start execution at specified address
+- software reset the device when finished if -R is specified
+- resume already initialized connection (for when reset fails, UART only)
+- GPIO signalling to enter bootloader mode (hardware dependent)
 
 
 ## Usage synopsis:
@@ -51,7 +51,7 @@ Usage: ./at32flash [-bvngfhc] [-[rw] filename] [tty_device | i2c_device]
             sequence=[[-]signal]&|,[sequence]
 ```
 
-## GPIO sequence:
+## GPIO sequence
     The following signals can appear in a sequence:
       Integer number representing GPIO pin
       'dtr', 'rts' or 'brk' representing serial port signal
@@ -61,7 +61,7 @@ Usage: ./at32flash [-bvngfhc] [-[rw] filename] [tty_device | i2c_device]
     The following modifiers can be prepended to a signal:
       '-' reset signal (low) instead of setting it (high)
 
-## Examples:
+## Examples
 ```
     Get device information:
         ./at32flash /dev/ttyS0
@@ -92,3 +92,17 @@ Usage: ./at32flash [-bvngfhc] [-[rw] filename] [tty_device | i2c_device]
 
 ## Bug reports and patches
 Please file bugs and post patches here in GitHub.
+
+# How to compile for Windows
+(internal notes)
+- Get the latest version of Mingw-w64 via [MSYS2](https://www.msys2.org/), which provides up-to-date native builds of GCC, Mingw-w64, and other helpful C++ tools and libraries. You can download the latest installer from the MSYS2 page or use this [link to the installer](https://github.com/msys2/msys2-installer/releases/download/2022-01-18/msys2-x86_64-20220118.exe).
+- Follow the Installation instructions on the MSYS2 website to install Mingw-w64. Commands to be lunched in MinGW:
+```
+pacman -Syu
+pacman -Su
+pacman -S --needed base-devel mingw-w64-x86_64-toolchain
+pacman -S make
+pacman -S mingw-w64-x86_64-gcc
+```
+- In MinGW shell, enter the project folder and lunch `make`
+- (optional) Add the path to your Mingw-w64 bin folder (ie. `C:\msys64\mingw64\bin`) to the Windows PATH environment variable.
