@@ -49,6 +49,7 @@ C/C++ 编译
 **AT32F435**
 - LED Blink
 - USB vcp loopback
+- ADC Vref value check
 
 **AT32F403A**
 - LED BLink
