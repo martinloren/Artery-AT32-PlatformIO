@@ -7,12 +7,10 @@ Copy the `.platformio\packages\tool-jlink\Devices\AT\AT32F4xx` folder from Githu
 Add the following lines to the `JLinkDevices.xml` file under `.platformio/packages/tool-jlink/`
 
 ```
+ <!--    -->
+  <!-- AT32 -->
   <!--    -->
-  <!-- AT -->
-  <!--    -->
-  <!--        -->
-  <!-- AT32F4 -->
-  <!--        -->
+  <!-- AT32F403 -->
   <Device>
    <ChipInfo Vendor="AT" Name="AT32F403AxCx" WorkRAMAddr="0x20000000" WorkRAMSize="0x38000" Core="JLINK_CORE_CORTEX_M4" />
    <FlashBankInfo Name="QSPI Flash" BaseAddr="0x08000000" MaxSize="0x040000" Loader="Devices/AT/AT32F4xx/AT32F403A_256.FLM" LoaderType="FLASH_ALGO_TYPE_CMSIS" />
@@ -25,6 +23,7 @@ Add the following lines to the `JLinkDevices.xml` file under `.platformio/packag
    <ChipInfo Vendor="AT" Name="AT32F403AxGx" WorkRAMAddr="0x20000000" WorkRAMSize="0x38000" Core="JLINK_CORE_CORTEX_M4" />
    <FlashBankInfo Name="QSPI Flash" BaseAddr="0x08000000" MaxSize="0x100000" Loader="Devices/AT/AT32F4xx/AT32F403A_1024.FLM" LoaderType="FLASH_ALGO_TYPE_CMSIS" />
   </Device>  
+  <!-- AT32F435 -->
   <Device>
    <ChipInfo Vendor="AT" Name="AT32F435xCx" WorkRAMAddr="0x20000000" WorkRAMSize="0x80000" Core="JLINK_CORE_CORTEX_M4" />
    <FlashBankInfo Name="QSPI Flash" BaseAddr="0x08000000" MaxSize="0x040000" Loader="Devices/AT/AT32F4xx/AT32F435_256.FLM" LoaderType="FLASH_ALGO_TYPE_CMSIS" />
@@ -36,7 +35,16 @@ Add the following lines to the `JLinkDevices.xml` file under `.platformio/packag
   <Device>
    <ChipInfo Vendor="AT" Name="AT32F435xMx" WorkRAMAddr="0x20000000" WorkRAMSize="0x80000" Core="JLINK_CORE_CORTEX_M4" />
    <FlashBankInfo Name="QSPI Flash" BaseAddr="0x08000000" MaxSize="0x400000" Loader="Devices/AT/AT32F4xx/AT32F435_4032.FLM" LoaderType="FLASH_ALGO_TYPE_CMSIS" />
-  </Device>    
+  </Device> 
+  <!-- AT32F425 -->
+  <Device>
+   <ChipInfo Vendor="AT" Name="AT32F425x6x" WorkRAMAddr="0x20000000" WorkRAMSize="0x05000" Core="JLINK_CORE_CORTEX_M4" />
+   <FlashBankInfo Name="QSPI Flash" BaseAddr="0x08000000" MaxSize="0x008000" Loader="Devices/AT/AT32F4xx/AT32F425_32.FLM" LoaderType="FLASH_ALGO_TYPE_CMSIS" />
+  </Device>     
+  <Device>
+   <ChipInfo Vendor="AT" Name="AT32F425x8x" WorkRAMAddr="0x20000000" WorkRAMSize="0x05000" Core="JLINK_CORE_CORTEX_M4" />
+   <FlashBankInfo Name="QSPI Flash" BaseAddr="0x08000000" MaxSize="0x010000" Loader="Devices/AT/AT32F4xx/AT32F425_64.FLM" LoaderType="FLASH_ALGO_TYPE_CMSIS" />
+  </Device>  
 ```
 
 ## 3. Use JLINK upload in the Project

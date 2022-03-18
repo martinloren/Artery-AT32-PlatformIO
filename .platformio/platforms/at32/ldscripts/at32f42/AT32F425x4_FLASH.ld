@@ -1,17 +1,16 @@
 /*
 *****************************************************************************
 **
-**  File        : AT32F435xG_FLASH.ld
+**  File        : AT32F425x4_FLASH.ld
 **
-**  Abstract    : Linker script for AT32F435xG Device with
-**                1000KByte FLASH, 384KByte RAM
+**  Abstract    : Linker script for AT32F425x4 Device with
+**                16KByte FLASH, 8KByte RAM
 **
 **                Set heap size, stack size and stack location according
 **                to application requirements.
 **
 **                Set memory bank area and size if external memory is used.
 **
-**  Target      : Artery Tek AT32
 **
 **  Environment : Arm gcc toolchain
 **
@@ -22,7 +21,7 @@
 ENTRY(Reset_Handler)
 
 /* Highest address of the user mode stack */
-_estack = 0x20017FFF;    /* end of RAM */
+_estack = 0x20001FFF;    /* end of RAM */
 
 /* Generate a link error if heap and stack don't fit into RAM */
 _Min_Heap_Size = 0x200;      /* required amount of heap  */
@@ -31,8 +30,8 @@ _Min_Stack_Size = 0x400; /* required amount of stack */
 /* Specify the memory areas */
 MEMORY
 {
-FLASH (rx)      : ORIGIN = 0x08000000, LENGTH = 1000K
-RAM (xrw)       : ORIGIN = 0x20000000, LENGTH = 512K
+FLASH (rx)      : ORIGIN = 0x08000000, LENGTH = 16K
+RAM (xrw)       : ORIGIN = 0x20000000, LENGTH = 8K
 }
 
 /* Define output sections */
