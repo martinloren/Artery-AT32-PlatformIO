@@ -58,7 +58,7 @@ SConscript(build_script)
 
 CMSIS_DIR = platform.get_package_dir("framework-cmsis")
 CMSIS_DEVICE_DIR = platform.get_package_dir("framework-cmsis-" + mcu[0:7])
-LDSCRIPTS_DIR = platform.get_package_dir("tool-ldscripts-at32")
+LDSCRIPTS_DIR = join('%s' % platform.get_dir() or "", "ldscripts")
 assert all(os.path.isdir(d) for d in (CMSIS_DIR, CMSIS_DEVICE_DIR, LDSCRIPTS_DIR))
 
 
@@ -81,9 +81,9 @@ def generate_ldscript(default_ldscript_path):
 def get_linker_script():
     ldscript_match = glob.glob(os.path.join(
         LDSCRIPTS_DIR, mcu[0:7], mcu[0:11].upper() + "*_FLASH.ld"))
-    #print(os.path.join(LDSCRIPTS_DIR, mcu[0:7], mcu[0:11].upper() + "*_FLASH.ld"))
-
+    
     if ldscript_match and os.path.isfile(ldscript_match[0]):
+        print("LD Script file: " +ldscript_match[0])
         return ldscript_match[0]
 
     default_ldscript = os.path.join(
@@ -99,7 +99,7 @@ def get_linker_script():
 
 
 def prepare_startup_file(src_path):
-    startup_file = os.path.join(src_path, "gcc", "startup_%s.S" % product_line.lower())
+    startup_file = os.path.join(src_path, "gcc", "startup_%s.s" % product_line.lower())
     print("Startup file: " + startup_file)
     # Change file extension to uppercase:
     if not os.path.isfile(startup_file) and os.path.isfile(startup_file[:-2] + ".s"):

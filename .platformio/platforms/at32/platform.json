@@ -54,12 +54,18 @@
       "owner": "platformio",
       "version": "~1.0.0"
     },
-    "framework-cmsis-at32f43": {
+    "framework-cmsis-at32f42": {
       "type": "framework",
       "optional": true,
       "owner": "platformio",
       "version": "~1.0.0"
     },    
+    "framework-cmsis-at32f43": {
+      "type": "framework",
+      "optional": true,
+      "owner": "platformio",
+      "version": "~1.0.0"
+    },     
     "tool-openocd": {
       "type": "uploader",
       "optional": true,
@@ -97,11 +103,6 @@
       "optional": true,
       "owner": "platformio",
       "version": "^3.0.0"
-    },
-    "tool-ldscripts-at32": {
-      "optional": true,
-      "owner": "platformio",
-      "version": "~0.1.1"
     }
   }
 }

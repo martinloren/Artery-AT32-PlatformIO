@@ -1,0 +1,47 @@
+{
+  "build": {
+    "core": "at32",
+    "cpu": "cortex-m4",
+    "extra_flags": "-DAT32F425R8T7 -DAT_START_F425_V1",
+    "f_cpu": "96000000L",
+    "hwids": [
+      [
+        "0x2E3C",
+        "0xDF11"
+      ]
+    ],
+    "mcu": "at32f425x8",
+    "product_line": "AT32F425",
+    "variant": "AT32F4xx/F425(T-U)"
+  },
+  "debug": {
+    "default_tools": [
+      "stlink"
+    ],
+    "jlink_device": "AT32F425x8x",
+    "openocd_extra_args": [
+      "-c",
+      "reset_config none"
+    ],
+    "openocd_target": "stm32f4x",
+    "svd_path": "STM32F425xx.svd"
+  },
+  "frameworks": [
+    "cmsis"
+  ],
+  "name": "AT-START-F425",
+  "upload": {
+    "maximum_ram_size": 20480,
+    "maximum_size": 65536,
+    "protocol": "serial",
+    "protocols": [
+      "jlink",
+      "cmsis-dap",
+      "stlink",
+      "serial",
+      "blackmagic"
+    ]
+  },
+  "url": "https://www.arterychip.com/en/product/AT32F425.jsp",
+  "vendor": "Artery"
+}
