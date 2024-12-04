@@ -103,6 +103,11 @@
       "optional": true,
       "owner": "platformio",
       "version": "^3.0.0"
+    },
+    "tool-ldscripts-at32": {
+      "optional": false,
+      "owner": "martinloren",
+      "version": "https://github.com/martinloren/tool-ldscripts-at32.git"
     }
   }
 }
