@@ -1,0 +1,8 @@
+<Database>
+  <Device>
+    <ChipInfo Vendor="AT" Name="AT32F435xGx" WorkRAMAddr="0x20000000" WorkRAMSize="0x80000" Core="JLINK_CORE_CORTEX_M4" />
+    <FlashBankInfo Name="Internal code flash" BaseAddr="0x08000000" AlwaysPresent="1" >
+      <LoaderInfo Name="QSPI Flash" MaxSize="0x100000" Loader="AT32F435_1024.FLM" LoaderType="FLASH_ALGO_TYPE_CMSIS" />
+    </FlashBankInfo>
+  </Device>
+</Database>

@@ -7,10 +7,23 @@ Released specifically for the latest **[AT32F403A](https://www.arterychip.com/en
 ## Why AT32F403A
 ![MCU Comparison](Docs/MCU_Comparison.jpg "MCU Comparison")
 
-## Instructions 说明
-You need to have Visual Studio Code with PlatformIO installed （tested with PlatformIO v.2.4.0). 
-1) Copy the folders under .platformio into your .platformio folder (ie: C:\Users\(username)\.platformio)<br>
-将 .platformio 下的文件夹复制到您的 .platformio 文件夹中（即：C:\Users\(用户名)\.platformio）
+
+## Installation 安装
+You need to have Visual Studio Code with PlatformIO installed （tested with PlatformIO Core v.6.1.16). 
+1) Copy the folders under `.platformio` into your .platformio folder (ie: `C:\Users\<USER>\.platformio`)
+将 .platformio 下的文件夹复制到您的 .platformio 文件夹中（即：`C:\Users\<用户名>\.platformio`）
+
+#### Install AT32 Configurations for J-Link (last update from ArteryICPProgrammer V3.0.19)
+In order to make the J-Link software aware of the new device, copy the folder `JLinkDevices` in the the central JLinkDevices folder (Windows):	`C:\Users\<USER>\AppData\Roaming\SEGGER\`
+
+Currently available:
+- AT32F435xGx
+- AT32F437xGx
+
+More details about custom device configuration for J-Link are available [here](https://wiki.segger.com/J-Link_Device_Support_Kit).
+
+
+## Usage Instructions 使用说明
 3) Open Visual Studio Code, you should see AT32 Platform among the available platforms<br>
 打开 Visual Studio Code，在可用平台中应该可以看到 AT32 平台
 4) Open one of the example folder and try to compile / upload<br>

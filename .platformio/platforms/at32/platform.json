@@ -1,6 +1,6 @@
 {
   "name": "at32",
-  "title": "AT32",
+  "title": "Artery AT32",
   "description": "The AT32 family of 32-bit Flash MCUs based on the ARM Cortex-M processor is designed to offer new degrees of freedom to MCU users. It offers a 32-bit product range that combines very high performance, real-time capabilities, digital signal processing, and low-power, low-voltage operation, while maintaining full integration and ease of development.",
   "homepage": "https://www.arterychip.com/en/index.jsp",
   "license": "Apache-2.0",
@@ -18,7 +18,7 @@
     "type": "git",
     "url": "https://github.com/platformio/platform-at32.git"
   },
-  "version": "1.0.0",
+  "version": "1.0.1",
   "frameworks": {
     "cmsis": {
       "package": "framework-cmsis",
@@ -51,21 +51,15 @@
     "framework-cmsis-at32f40": {
       "type": "framework",
       "optional": true,
-      "owner": "platformio",
-      "version": "~1.0.0"
+      "owner": "martinloren",
+      "version": "https://github.com/martinloren/framework-cmsis-at32f40.git"
     },
-    "framework-cmsis-at32f42": {
-      "type": "framework",
-      "optional": true,
-      "owner": "platformio",
-      "version": "~1.0.0"
-    },    
     "framework-cmsis-at32f43": {
       "type": "framework",
       "optional": true,
-      "owner": "platformio",
-      "version": "~1.0.0"
-    },     
+      "owner": "martinloren",
+      "version": "https://github.com/martinloren/framework-cmsis-at32f43.git"
+    },    
     "tool-openocd": {
       "type": "uploader",
       "optional": true,
