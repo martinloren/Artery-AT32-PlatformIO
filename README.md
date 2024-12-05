@@ -1,17 +1,17 @@
 # Artery-AT32-PlatformIO
- PlatformIO platform and framework for Artery AT32 MCU.<br>
- Artery AT32 MCU 的 PlatformIO 平台和框架。
+ PlatformIO platform and framework for developing the new Artery AT32 MCU.<br/>雅特力科技AT32芯片 PlatformIO 平台和框架。
 
-Released specifically for the latest **[AT32F403A](https://www.arterychip.com/en/product/AT32F403A.jsp)** and **[AT32F435](https://www.arterychip.com/en/product/AT32F435.jsp)** MCUs with Visual Studio Code & PlatformIO.
+MCUs Supported: **[AT32F403A](https://www.arterychip.com/en/product/AT32F403A.jsp)**, **[AT32F435](https://www.arterychip.com/en/product/AT32F435.jsp)**, **[AT32F437](https://www.arterychip.com/en/product/AT32F437.jsp)**.
+<br/>Version 版本: 2024-12
 
-## Why AT32F403A
+## AT32 VS STM32
 ![MCU Comparison](Docs/MCU_Comparison.jpg "MCU Comparison")
 
 
 ## Installation 安装
 You need to have Visual Studio Code with PlatformIO installed （tested with PlatformIO Core v.6.1.16). 
 1) Copy the folders under `.platformio` into your .platformio folder (ie: `C:\Users\<USER>\.platformio`)
-将 .platformio 下的文件夹复制到您的 .platformio 文件夹中（即：`C:\Users\<用户名>\.platformio`）
+<br/>将 .platformio 下的文件夹复制到您的 .platformio 文件夹中（即：`C:\Users\<用户名>\.platformio`）
 
 #### Install AT32 Configurations for J-Link (last update from ArteryICPProgrammer V3.0.19)
 In order to make the J-Link software aware of the new device, copy the folder `JLinkDevices` in the the central JLinkDevices folder (Windows):	`C:\Users\<USER>\AppData\Roaming\SEGGER\`
@@ -24,10 +24,10 @@ More details about custom device configuration for J-Link are available [here](h
 
 
 ## Usage Instructions 使用说明
-3) Open Visual Studio Code, you should see AT32 Platform among the available platforms<br>
-打开 Visual Studio Code，在可用平台中应该可以看到 AT32 平台
-4) Open one of the example folder and try to compile / upload<br>
-打开示例文件夹之一并尝试编译代码/上传到 MCU
+3) Open Visual Studio Code, you should see AT32 Platform among the available platforms
+<br>打开 Visual Studio Code，在可用平台中应该可以看到 AT32 平台
+1) Open one of the example folder and try to compile / upload
+<br>打开示例文件夹之一并尝试编译代码/上传到 MCU
 
 # Upload Firmware on MCU 上传固件
 Available upload methods: `serial bootloader` (PA9, PA10), `dfu`, `jlink` (check the configuration guide [here](https://github.com/martinloren/Artery-AT32-PlatformIO/blob/main/JLINK.md) )<br>
