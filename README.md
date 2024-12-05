@@ -59,6 +59,9 @@ C/C++ 编译
 ![VSCode Platform](Docs/VSCode_PlatformIO_1.jpg "VSCode Platform")
 
 # Available Examples
+**AT32F437**
+- LED Blink
+
 **AT32F435**
 - LED Blink
 - USB vcp loopback
