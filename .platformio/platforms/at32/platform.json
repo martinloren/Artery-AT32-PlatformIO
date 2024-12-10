@@ -48,17 +48,29 @@
         "~2.50700.0"
       ]
     },
-    "framework-cmsis-at32f40": {
+    "framework-cmsis-at32f421": {
       "type": "framework",
-      "optional": true,
+      "optional": false,
       "owner": "martinloren",
-      "version": "https://github.com/martinloren/framework-cmsis-at32f40.git"
+      "version": "https://github.com/martinloren/framework-cmsis-at32f421.git"
     },
-    "framework-cmsis-at32f43": {
+    "framework-cmsis-at32f425": {
       "type": "framework",
-      "optional": true,
+      "optional": false,
       "owner": "martinloren",
-      "version": "https://github.com/martinloren/framework-cmsis-at32f43.git"
+      "version": "https://github.com/martinloren/framework-cmsis-at32f425.git"
+    },
+    "framework-cmsis-at32f403": {
+      "type": "framework",
+      "optional": false,
+      "owner": "martinloren",
+      "version": "https://github.com/martinloren/framework-cmsis-at32f403.git"
+    },
+    "framework-cmsis-at32f43x": {
+      "type": "framework",
+      "optional": false,
+      "owner": "martinloren",
+      "version": "https://github.com/martinloren/framework-cmsis-at32f43x.git"
     },    
     "tool-openocd": {
       "type": "uploader",
@@ -101,6 +113,7 @@
     "tool-ldscripts-at32": {
       "optional": false,
       "owner": "martinloren",
+      "version": "^0.1.3",
       "version": "https://github.com/martinloren/tool-ldscripts-at32.git"
     }
   }

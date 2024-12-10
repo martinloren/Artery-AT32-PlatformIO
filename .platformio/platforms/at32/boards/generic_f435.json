@@ -10,7 +10,7 @@
         "0xDF11"
       ]
     ],
-    "mcu": "at32f435xg",
+    "mcu": "at32f43xxg",
     "product_line": "AT32F435_437",
     "variant": "AT32F4xx/F435_F435(T-U)"
   },

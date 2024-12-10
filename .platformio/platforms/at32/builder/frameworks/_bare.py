@@ -24,7 +24,7 @@ env.Append(
     ASFLAGS=["-x", "assembler-with-cpp"],
 
     CCFLAGS=[
-        "-O3",  # optimize for size
+        "-Os",  # optimize for size
         "-ffunction-sections",  # place each function in its own section
         "-fdata-sections",
         "-Wall",
@@ -41,7 +41,7 @@ env.Append(
     ],
 
     LINKFLAGS=[
-        "-O3",
+        "-Os",
         "-Wl,--gc-sections,--relax",
         "-mthumb",
     ],
@@ -50,15 +50,14 @@ env.Append(
 )
 
 #Floating point unit: hard (hardware) | softfp (software)
-
-#if (
-#    any(cpu in board_config.get("build.cpu") for cpu in ("cortex-m4"))
-#):
-#    env.Append(
-#        CFLAGS=["-mfpu=fpv4-sp-d16", "-mfloat-abi=hard"],
-#        CCFLAGS=["-mfpu=fpv4-sp-d16", "-mfloat-abi=hard"],
-#        LINKFLAGS=["-mfpu=fpv4-sp-d16", "-mfloat-abi=hard", "-u _printf_float"],
-#    )
+if (
+    any(cpu in board_config.get("build.cpu") for cpu in ("cortex-m4"))
+):
+    env.Append(
+        CFLAGS=["-mfpu=fpv4-sp-d16", "-mfloat-abi=hard"],
+        CCFLAGS=["-mfpu=fpv4-sp-d16", "-mfloat-abi=hard"],
+        LINKFLAGS=["-mfpu=fpv4-sp-d16", "-mfloat-abi=hard"],
+    )
 
 if "BOARD" in env:
     env.Append(

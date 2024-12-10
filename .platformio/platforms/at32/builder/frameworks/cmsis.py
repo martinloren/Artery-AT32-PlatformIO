@@ -48,8 +48,10 @@ print("-------------------------------------------------------------------------
 print("Version: 2024-12");
 
 #env.SConscript("_bare.py")
+#print("framework: "+"framework-cmsis-" + mcu[0:8]);
+
 #build_script = "_bare.py"
-build_script = join(env.PioPlatform().get_package_dir("framework-cmsis-" + mcu[0:7]), 
+build_script = join(env.PioPlatform().get_package_dir("framework-cmsis-" + mcu[0:8]), 
     "tools", "platformio", "platformio-build.py")
 
 if not isfile(build_script):
@@ -60,7 +62,7 @@ SConscript(build_script)
 
 
 CMSIS_DIR = platform.get_package_dir("framework-cmsis")
-CMSIS_DEVICE_DIR = platform.get_package_dir("framework-cmsis-" + mcu[0:7])
+CMSIS_DEVICE_DIR = platform.get_package_dir("framework-cmsis-" + mcu[0:8])
 LDSCRIPTS_DIR = platform.get_package_dir("tool-ldscripts-at32")
 print("Environment:");
 print("     CMSIS_DIR: "+CMSIS_DIR);
