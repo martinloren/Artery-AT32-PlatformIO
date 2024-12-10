@@ -34,7 +34,10 @@ class At32Platform(PlatformBase):
 
         if "cmsis" in frameworks:
             assert build_mcu, ("Missing MCU field for %s" % board)
-            device_package = "framework-cmsis-" + build_mcu[0:7]
+            if build_mcu.startswith("at32f43"):
+                device_package = "framework-cmsis-at32f43x"
+            else:
+                device_package = "framework-cmsis-" + build_mcu[0:8]
             if device_package in self.packages:
                 self.packages[device_package]["optional"] = False
 

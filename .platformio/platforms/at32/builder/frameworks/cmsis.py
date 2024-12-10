@@ -50,10 +50,20 @@ print("Version: 2024-12");
 #env.SConscript("_bare.py")
 #print("framework: "+"framework-cmsis-" + mcu[0:8]);
 
-#build_script = "_bare.py"
-build_script = join(env.PioPlatform().get_package_dir("framework-cmsis-" + mcu[0:8]), 
-    "tools", "platformio", "platformio-build.py")
+CMSIS_DIR = platform.get_package_dir("framework-cmsis")
+if mcu.startswith("at32f43"):
+    CMSIS_DEVICE_DIR = platform.get_package_dir("framework-cmsis-at32f43x")
+else:
+    CMSIS_DEVICE_DIR = platform.get_package_dir("framework-cmsis-" + mcu[0:8])
+LDSCRIPTS_DIR = platform.get_package_dir("tool-ldscripts-at32")
+print("Environment:");
+print("     CMSIS_DIR: "+CMSIS_DIR);
+print("     CMSIS_DEVICE_DIR: "+CMSIS_DEVICE_DIR);
+print("     LDSCRIPTS_DIR: "+LDSCRIPTS_DIR);
+assert all(os.path.isdir(d) for d in (CMSIS_DIR, CMSIS_DEVICE_DIR, LDSCRIPTS_DIR))
 
+#build_script = "_bare.py"
+build_script = join(CMSIS_DEVICE_DIR, "tools", "platformio", "platformio-build.py")
 if not isfile(build_script):
     sys.stderr.write("Error: Missing PlatformIO build script %s!\n" % build_script)
     env.Exit(1)
@@ -61,14 +71,7 @@ if not isfile(build_script):
 SConscript(build_script)
 
 
-CMSIS_DIR = platform.get_package_dir("framework-cmsis")
-CMSIS_DEVICE_DIR = platform.get_package_dir("framework-cmsis-" + mcu[0:8])
-LDSCRIPTS_DIR = platform.get_package_dir("tool-ldscripts-at32")
-print("Environment:");
-print("     CMSIS_DIR: "+CMSIS_DIR);
-print("     CMSIS_DEVICE_DIR: "+CMSIS_DEVICE_DIR);
-print("     LDSCRIPTS_DIR: "+LDSCRIPTS_DIR);
-assert all(os.path.isdir(d) for d in (CMSIS_DIR, CMSIS_DEVICE_DIR, LDSCRIPTS_DIR))
+
 
 
 def generate_ldscript(default_ldscript_path):
