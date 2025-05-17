@@ -235,13 +235,14 @@ elif upload_protocol == "serial":
         __configure_upload_port=__configure_upload_port,
         UPLOADER=join(
             '%s' % platform.get_dir() or "",
-            "tools", "stm32flash", "stm32flash"),
+            "tools", "at32flash", "at32flash"),
         UPLOADERFLAGS=[
             "-g", board.get("upload.offset_address", "0x08000000"),
             "-b", env.subst("$UPLOAD_SPEED") or "115200", "-w"
         ],
         UPLOADCMD='"$UPLOADER" $UPLOADERFLAGS $SOURCE ${__configure_upload_port(__env__)}'
     )
+    #print(env.subst("$UPLOADCMD"))
 
     upload_actions = [
         env.VerboseAction(env.AutodetectUploadPort, "Looking for upload port..."),
