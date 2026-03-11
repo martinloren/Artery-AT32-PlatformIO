@@ -4,17 +4,22 @@
 
 #define BLACKPILL // BLUEPILL BLACKPILL QFP48_FLASHER
 
+
+// Just add the following code to extend sram size to 512KB, and the rest of the code is same as the original main.c ----------
 #define EXTEND_SRAM FLASH_EOPB0_SRAM_512K //512KB RAM
 
+#ifdef __cplusplus
+extern "C" {
+#endif
 void extend_sram(void);
-
 #ifdef __cplusplus
 }
 #endif
 
-
 /**
-  * @brief  to extend sram size
+  * @brief  to extend sram size, it goes integrated in the Startup file, 
+  * so it will be executed before main function, and it will check if the sram size is expected, 
+  * if not, it will change eopb0 to extend sram size, then reset system to make it take effect.
   * @param  none
   * @retval none
   */
@@ -34,6 +39,8 @@ void extend_sram(void)
     nvic_system_reset();
   }
 }
+
+//--------------------------------------------------------------------------------------------------------------------
 
 
 #ifdef BLUEPILL
