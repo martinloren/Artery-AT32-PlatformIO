@@ -59,14 +59,16 @@ More details about custom device configuration for J-Link are available [here](h
 
 
 ## Info about Platform.ini Project Configuration File
-`[env:(write here project name)]
+```
+[env:(write here project name)]
 platform = at32
 framework = cmsis
 board = generic_f435 ;or: generic_f403a
 build_flags = -I include
 monitor_speed = 921600 
 upload_protocol = jlink ;or: serial
-debug_tool = jlink`
+debug_tool = jlink
+```
 
 
 
