@@ -1,35 +1,76 @@
 # Artery-AT32-PlatformIO
- PlatformIO platform and framework for developing the new Artery AT32 MCU.<br/>雅特力科技AT32芯片 PlatformIO 平台和框架。
+ PlatformIO platform and framework for developing the new Artery AT32 MCU under VS Code!<br/>雅特力科技AT32芯片 PlatformIO 平台和框架。
 
 MCUs Supported: **[AT32F403A](https://www.arterychip.com/en/product/AT32F403A.jsp)**, **[AT32F435](https://www.arterychip.com/en/product/AT32F435.jsp)**, **[AT32F437](https://www.arterychip.com/en/product/AT32F437.jsp)**.
-<br/>Version 版本: 2024-12
+<br/>Version 版本: 2026-03
 
 ## AT32 VS STM32
 ![MCU Comparison](Docs/MCU_Comparison.jpg "MCU Comparison")
+## Prerequisites 前置条件
+Before using this framework, make sure the following tools are installed:
 
+- Visual Studio Code + PlatformIO ([Installation Guide](./VSCode-README.md))
+- Git ([Installation Guide](./GIT-README.md))
+- J-Link (for firmware upload and debugging) ([Installation Guide](./JLINK-README.md))
+
+在使用本项目之前，请确保已安装以下工具：
+
+- Git（用于克隆本仓库）([安装指南](./GIT-README.md))
+- Visual Studio Code + PlatformIO ([安装指南](./VSCode-README.md))
+- J-Link (for firmware upload and debugging)  ([安装指南](./JLINK-README.md))
 
 ## Installation 安装
-You need to have Visual Studio Code with PlatformIO installed （tested with PlatformIO Core v.6.1.16). 
-1) Copy the folders under `.platformio` into your .platformio folder (ie: `C:\Users\<USER>\.platformio`)
+#### 1. Install AT32 Platform in PlatformIO
+#### 在PlatformIO中安装平台（AT32 MCU平台）
+ 1.Copy the folders under `.platformio` into your .platformio folder (ie: `C:\Users\<USER>\.platformio`)
 <br/>将 .platformio 下的文件夹复制到您的 .platformio 文件夹中（即：`C:\Users\<用户名>\.platformio`）
 
-#### Install AT32 Configurations for J-Link (last update from ArteryICPProgrammer V3.0.19)
-In order to make the J-Link software aware of the new device, copy the folder `JLinkDevices` in the the central JLinkDevices folder (Windows):	`C:\Users\<USER>\AppData\Roaming\SEGGER\`
+Restart VS Code, then go to PlatformIO → Platforms and check whether the target chip platform has been installed correctly. If it appears as shown below, the installation is successful.
+<br/>重启VS Code，然后进入PlatformIO→Platforms，检查目标芯片平台是否已经正确安装。如果出现如下所示，则说明安装成功。
+![VSCode Platform](Docs/AT32_Install.jpg "VSCode Platform")
+
+#### 2. Install AT32 Configurations for J-Link (last update from ArteryICPProgrammer V3.0.19)
+#### 为J-Link安装AT32配置（最近更新自ArteryICPProgrammer V3.0.19）
+
+Before proceeding, make sure J-Link software (including JLink.exe) is installed.
+In order to let the J-Link software work with AT32 MCUs under PlatformIO, copy the folder `JLinkDevices` in the the main JLinkDevices folder (Windows):	
+`C:\Users\<USER>\AppData\Roaming\SEGGER\`
+<br>在此之前，请确保已安装J-Link软件（包括JLink.exe）。
+为了让J-Link软件在PlatformIO下与AT32 mcu一起工作，请复制主JLinkDevices文件夹中的文件夹'JLinkDevices' （Windows）:
+`C:\Users\<USER>\AppData\Roaming\SEGGER\`
+If the SEGGER folder does not exists, create it. 
+<br>为了使J-Link软件能够识别新设备，请复制中央JLinkDevices文件夹（Windows）中的“JLinkDevices”文件夹：“C:\Users\<USER> \AppData\Roaming\SEGGER\”。
 
 Currently available:
+目前可用：
 - AT32F435xGx
 - AT32F437xGx
 
 More details about custom device configuration for J-Link are available [here](https://wiki.segger.com/J-Link_Device_Support_Kit).
+有关J-Link的自定义设备配置的更多详细信息可供参考[here](https://wiki.segger.com/J-Link_Device_Support_Kit).
 
 
-## Usage Instructions 使用说明
-3) Open Visual Studio Code, you should see AT32 Platform among the available platforms
-<br>打开 Visual Studio Code，在可用平台中应该可以看到 AT32 平台
-1) Open one of the example folder and try to compile / upload
-<br>打开示例文件夹之一并尝试编译代码/上传到 MCU
 
-# Upload Firmware on MCU 上传固件
+
+# First Project
+1. Copy one of the available sample folder to make a new project.
+2. Open the copied folder in VS Code and wait that the PlatformIO Extension starts.
+3. Hit the Build button and check that the building succeed.
+
+
+## Info about Platform.ini Project Configuration File
+`[env:(write here project name)]
+platform = at32
+framework = cmsis
+board = generic_f435 ;or: generic_f403a
+build_flags = -I include
+monitor_speed = 921600 
+upload_protocol = jlink ;or: serial
+debug_tool = jlink`
+
+
+
+## Upload Firmware on MCU 上传固件
 Available upload methods: `serial bootloader` (PA9, PA10), `dfu`, `jlink` (check the configuration guide [here](https://github.com/martinloren/Artery-AT32-PlatformIO/blob/main/JLINK.md) )<br>
 可用的上传方法：串行引导加载程序（PA9、PA10）、dfu、jlink
 1) Set it in the file `platformio.ini` in the Project folder, complete configuration options as in example project *cmsis-blink*<br>
@@ -48,8 +89,8 @@ Notes 备注:
 硬件浮点单元 (FPU)
 - C/C++ compilation<br>
 C/C++ 编译
-- 224K Max SRAM (for AT32F403A)<br>
-224K 最大SRAM (AT32F403A)
+- 224K Max SRAM for AT32F403 / 512K for AT32F435<br>
+224K 最大SRAM为AT32F403，512K为AT32F435
 
 # TO-DO List 待办事项清单
 - none
